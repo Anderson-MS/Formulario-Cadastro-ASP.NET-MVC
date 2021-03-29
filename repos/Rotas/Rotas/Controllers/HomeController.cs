@@ -32,5 +32,11 @@ namespace Rotas.Controllers
         {
             return View(todasAsNoticias.FirstOrDefault(x => x.NoticiaId == noticiaId));
         }
+        public ActionResult MostraCategoria(string categoria)
+        {
+            var categoriaEspecifica = todasAsNoticias.Where(x => x.Categoria.ToLower() == categoria.ToLower()).ToList();
+            ViewBag.Categoria = categoria;
+            return View(categoriaEspecifica);
+        }
     }
 }
