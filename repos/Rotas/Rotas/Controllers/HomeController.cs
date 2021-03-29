@@ -18,9 +18,19 @@ namespace Rotas.Controllers
             var ultimasNoticias = todasAsNoticias.Take(3);
             var todasAsCategorias = todasAsNoticias.Select(x => x.Categoria).Distinct().ToList();
 
-            ViewBag.Categorias = todasAsNoticias;
+            ViewBag.Categorias = todasAsCategorias;
 
             return View(ultimasNoticias);
-        }        
+        }   
+        
+        public ActionResult TodasAsNoticias()
+        {
+            return View(todasAsNoticias);
+        }
+
+        public ActionResult MostraNoticia(int noticiaId, string titulo, string categoria)
+        {
+            return View(todasAsNoticias.FirstOrDefault(x => x.NoticiaId == noticiaId));
+        }
     }
 }

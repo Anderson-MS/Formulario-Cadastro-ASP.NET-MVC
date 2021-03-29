@@ -8,14 +8,11 @@
 
 <div>
     <ul>
-        @foreach(string item in ViewBag.Categorias)
+        @foreach (string item in ViewBag.Categorias)
         {
-        <li>
-            @Html.ActionLink(item, "MostraCategoria", "Home",
-            new { 
-                 @categoria = item                            
-                 },null)
-        </li>
+            <li>
+                @Html.ActionLink(item, "MostraCategoria", "Home", new { @categoria = item }, null)
+            </li>
         }
     </ul>
 </div>
