@@ -8,6 +8,20 @@
 
 <div>
     <ul>
+        @foreach(string item in ViewBag.Categorias)
+        {
+        <li>
+            @Html.ActionLink(item, "MostraCategoria", "Home",
+            new { 
+                 @categoria = item                            
+                 },null)
+        </li>
+        }
+    </ul>
+</div>
+
+<div>
+    <ul>
         @foreach(var item in Model )
         {
             <li>
@@ -22,4 +36,9 @@
             </li>
         }
     </ul>
+</div>
+
+<div>
+    @Html.ActionLink("Todas as Noticias", "todasAsNoticias","Home")
+
 </div>
